@@ -1,14 +1,25 @@
 import React from "react"
 
-const Pizza = () => {
-  return(
-    <tr>
-      <td>{"Replace Me With Pizza Topping"}</td>
-      <td>{"Replace Me With Pizza Size"}</td>
-      <td>{"Replace Me With Vegatarian"}</td>
-      <td><button type="button" className="btn btn-primary">Edit Pizza</button></td>
-    </tr>
-  )
-}
+const Pizza = (props) => {
+    return (
+        <tr>
+            <td>{props.pizza.topping}</td>
+            <td>{props.pizza.size}</td>
+            <td>{props.pizza.vegetarian ? 'yes' : 'no'}</td>
+            <td>
+                <button type="button" className="btn btn-primary"
+                        onClick={() => props.handlePizzaEdit(props.pizza)}>Edit Pizza
+                </button>
+            </td>
+            <td>
+                <button type="button"
+                        className="btn btn-primary"
+                        onClick={() => props.handleFave(props.pizza)}> Like!
+                </button>
+            </td>
+
+        </tr>
+    )
+};
 
 export default Pizza
